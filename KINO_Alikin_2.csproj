@@ -122,10 +122,52 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\afisha\Add.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\afisha\item\item.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\afisha\Main.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Kinoteatr\Add.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Kinoteatr\item\item.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\Kinoteatr\Main.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Modell\afisha.cs" />
     <Compile Include="Modell\Kinoteatr.cs" />
+    <Compile Include="Pages\afisha\Add.xaml.cs">
+      <DependentUpon>Add.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\afisha\item\item.xaml.cs">
+      <DependentUpon>item.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\afisha\Main.xaml.cs">
+      <DependentUpon>Main.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Kinoteatr\Add.xaml.cs">
+      <DependentUpon>Add.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Kinoteatr\item\item.xaml.cs">
+      <DependentUpon>item.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Kinoteatr\Main.xaml.cs">
+      <DependentUpon>Main.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -152,6 +194,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="Images\ic_afisha.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\ic_kinoteatr.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

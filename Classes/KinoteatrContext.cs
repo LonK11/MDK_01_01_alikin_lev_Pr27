@@ -13,7 +13,7 @@ namespace KINO_Alikin_2.Classes
         public static List<KinoteatrContext> Select()
         {
             List<KinoteatrContext> AllKinoteatrs = new List<KinoteatrContext>();
-            string SQL = "SELECT * FROM 'Kinoteatr';";
+            string SQL = "SELECT * FROM `Kinoteatr`;";
             MySqlConnection connection = Connection.OpenConnection();
             MySqlDataReader Data = Connection.Query(SQL, connection);
             while (Data.Read())
@@ -59,7 +59,7 @@ namespace KINO_Alikin_2.Classes
         }
         public void Delete()
         {
-            string SQL = $"DELETE FROM `Kinoteatr` WHERE 'id' = {this.id}";
+            string SQL = $"DELETE FROM `Kinoteatr` WHERE `id` = {this.id}";
             MySqlConnection connection = Connection.OpenConnection();
             Connection.Query(SQL, connection);
             Connection.CloseConnection(connection);

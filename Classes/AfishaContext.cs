@@ -13,17 +13,17 @@ namespace KINO_Alikin_2.Classes
         public static List<AfishaContext> Select()
         {
             List<AfishaContext> allAfishas = new List<AfishaContext>();
-            string SQL = "SELECT * FROM 'afisha';";
+            string SQL = "SELECT * FROM `afisha`;";
             MySqlConnection connection = Connection.OpenConnection();
             MySqlDataReader Data = Connection.Query(SQL, connection);
             while (Data.Read())
             {
                 allAfishas.Add(new AfishaContext(
                     Data.GetInt32(0),
-                    Data.GetString(1),
-                    Data.GetDateTime(2),
-                    Data.GetInt32(3),
-                    Data.GetInt32(4)
+                    Data.GetString(2),
+                    Data.GetDateTime(3),
+                    Data.GetInt32(4),
+                    Data.GetInt32(1)
                 ));
             }
             Connection.CloseConnection(connection);
@@ -36,11 +36,11 @@ namespace KINO_Alikin_2.Classes
                                 "`id_kinoteatr`, " +
                                 "`name`, " +
                                 "`time`, " +
-                                "`count`)" +
+                                "`price`)" +
                          "VALUES" +
                             $" ({this.idKinoteatr}, " +
                             $"'{this.name}', " +
-                            $"{this.time}, " +
+                            $"'{this.time.ToString("yyyy-MM-dd HH:mm:ss")}', " +
                             $"{this.price})";
             MySqlConnection connection = Connection.OpenConnection();
             Connection.Query(SQL, connection);
@@ -53,8 +53,8 @@ namespace KINO_Alikin_2.Classes
                         "SET " +
                             $"`id_kinoteatr`= {this.idKinoteatr}," +
                             $"`name`='{this.name}'," +
-                            $"`count_zal`={this.time}," +
-                            $"`count`={this.price}" +
+                            $"`time`='{this.time.ToString("yyyy-MM-dd HH:mm:ss")}'," +
+                            $"`price`={this.price}" +
                         " WHERE " +
                             $"`id`={this.id}";
             MySqlConnection connection = Connection.OpenConnection();
@@ -63,7 +63,7 @@ namespace KINO_Alikin_2.Classes
         }
         public void Delete()
         {
-            string SQL = $"DELETE FROM `afisha` WHERE 'id' = {this.id}";
+            string SQL = $"DELETE FROM `afisha` WHERE `id` = {this.id}";
             MySqlConnection connection = Connection.OpenConnection();
             Connection.Query(SQL, connection);
             Connection.CloseConnection(connection);
