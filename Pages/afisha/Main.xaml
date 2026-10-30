@@ -9,11 +9,50 @@
       Title="Main">
 
     <Grid>
-        <ScrollViewer Margin="5,5,5,40" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Border Grid.Row="0"  Padding="6" Margin="5,0,5,0" Grid.RowSpan="2" Height="127" VerticalAlignment="Bottom">
+            <Grid Margin="0,0,0,-6">
+                <Label Content="Поиск:" VerticalAlignment="Bottom" Padding="2,0,4,0" Margin="16,0,0,87" HorizontalAlignment="Left" Width="50"/>
+                <TextBox x:Name="searchBox" TextChanged="Filter_Changed" Margin="66,0,0,81" Height="23" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="140"/>
+                <Label Content="Кинотеатр:" VerticalAlignment="Bottom" Margin="16,0,0,45" Padding="2,0,4,0" HorizontalAlignment="Left" Width="67"/>
+                <ComboBox x:Name="filterKinoteatr" Height="23" VerticalAlignment="Top" SelectionChanged="Filter_Changed" Margin="88,57,0,0" HorizontalAlignment="Left" Width="118"/>
+                <Label Content="Дата с:" Margin="226,0,508,83" Padding="2,0,4,0" RenderTransformOrigin="-7.545,-2.548" Height="16" VerticalAlignment="Bottom"/>
+                <DatePicker x:Name="dateFrom" SelectedDateChanged="Filter_Changed" Margin="289,18,0,77" HorizontalAlignment="Left" Width="108"/>
+                <Label Content="по:" Padding="2,0,4,0" Margin="415,0,341,83" Height="16" VerticalAlignment="Bottom"/>
+                <DatePicker x:Name="dateTo" SelectedDateChanged="Filter_Changed" Margin="464,18,0,77" HorizontalAlignment="Left" Width="106"/>
+                <Label Content="Цена от:" VerticalAlignment="Bottom" Margin="226,0,498,44" Padding="2,0,4,0"/>
+                <TextBox x:Name="priceFrom" TextChanged="Filter_Changed" Margin="289,52,0,46" HorizontalAlignment="Left" Width="106"/>
+                <Label Content="до:" Padding="2,0,4,0" Margin="415,0,337,44" Height="16" VerticalAlignment="Bottom"/>
+                <TextBox x:Name="priceTo" TextChanged="Filter_Changed" Margin="464,52,0,46" HorizontalAlignment="Left" Width="106"/>
+                <Label Content="Наименование:" Width="100" Margin="16,0,0,13" Padding="2,0,4,0" Height="16" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
+                <ComboBox x:Name="sortName" Width="90" SelectionChanged="Filter_Changed" Margin="116,88,0,10" HorizontalAlignment="Left">
+                    <ComboBoxItem Content="Без сорт." IsSelected="True"/>
+                    <ComboBoxItem Content="А-Я"/>
+                    <ComboBoxItem Content="Я-А"/>
+                </ComboBox>
+                <Label Content="Дата:" Margin="415,0,325,13" Padding="2,0,4,0" Height="16" VerticalAlignment="Bottom"/>
+                <ComboBox x:Name="sortDate" SelectionChanged="Filter_Changed" Margin="464,88,0,10" HorizontalAlignment="Left" Width="106">
+                    <ComboBoxItem Content="Без сорт." IsSelected="True"/>
+                    <ComboBoxItem Content="Сначала новые"/>
+                    <ComboBoxItem Content="Сначала старые"/>
+                </ComboBox>
+                <Label Content="Цена:" Margin="226,92,508,13" Padding="2,0,4,0"/>
+                <ComboBox x:Name="sortPrice" SelectionChanged="Filter_Changed" Margin="289,89,0,9" HorizontalAlignment="Left" Width="106">
+                    <ComboBoxItem Content="Без сорт." IsSelected="True"/>
+                    <ComboBoxItem Content="По возр."/>
+                    <ComboBoxItem Content="По убыв."/>
+                </ComboBox>
+                <Button x:Name="btnReset" Click="ResetFilter" Content="Сбросить" Width="70" Margin="0,48,103,48" Background="#FF9E34FB" Foreground="White" BorderBrush="#FF9E34FB" HorizontalAlignment="Right"/>
+                <Button Click="AddRecord" Content="Добавить" Margin="0,48,16,48" Background="#FF9E34FB" Foreground="White" BorderBrush="#FF9E34FB" HorizontalAlignment="Right" Width="70" />
+            </Grid>
+        </Border>
+        <ScrollViewer Grid.Row="1" Margin="5,10,5,132" >
             <StackPanel x:Name="parent">
 
             </StackPanel>
         </ScrollViewer>
-        <Button Click="AddRecord" Content="Добавить" Width="80" Margin="0,0,21,10" HorizontalAlignment="Right" Background="#FF9E34FB" Foreground="White" BorderBrush="#FF9E34FB" Height="25" VerticalAlignment="Bottom" />
     </Grid>
 </Page>

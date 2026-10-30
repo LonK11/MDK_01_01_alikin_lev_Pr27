@@ -9,11 +9,40 @@
       Title="Main">
 
     <Grid>
-        <ScrollViewer Margin="5,5,5,40" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Border Grid.Row="0"  Padding="6" Grid.RowSpan="2" Height="85" VerticalAlignment="Bottom">
+            <Grid>
+                <Label Content="Поиск:" Padding="2,0,4,0" Margin="11,0,0,39" Height="16" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="59"/>
+                <TextBox x:Name="searchBox" TextChanged="Filter_Changed" Margin="82,0,0,31" Height="23" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="148"/>
+                <Label Content="Наименование:" Width="100" Margin="15,0,0,10" Padding="2,0,4,0" Height="16" VerticalAlignment="Bottom" HorizontalAlignment="Left"/>
+                <ComboBox x:Name="sortName" SelectionChanged="Filter_Changed" Margin="109,0,0,3" Height="23" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="121">
+                    <ComboBoxItem Content="Без сорт." IsSelected="True"/>
+                    <ComboBoxItem Content="А-Я"/>
+                    <ComboBoxItem Content="Я-А"/>
+                </ComboBox>
+                <Label Content="Кол-во залов:" Margin="242,0,434,13" Padding="2,0,4,0" Height="16" VerticalAlignment="Bottom"/>
+                <ComboBox x:Name="sortCountZal" SelectionChanged="Filter_Changed" Margin="334,44,0,6" HorizontalAlignment="Left" Width="120">
+                    <ComboBoxItem Content="Без сорт." IsSelected="True"/>
+                    <ComboBoxItem Content="По возр."/>
+                    <ComboBoxItem Content="По убыв."/>
+                </ComboBox>
+                <Label Content="Кол-во мест:" Margin="242,0,0,42" Padding="2,0,4,0" Height="16" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="112"/>
+                <ComboBox x:Name="sortCount" SelectionChanged="Filter_Changed" Margin="334,15,0,35" HorizontalAlignment="Left" Width="120">
+                    <ComboBoxItem Content="Без сорт." IsSelected="True"/>
+                    <ComboBoxItem Content="По возр."/>
+                    <ComboBoxItem Content="По убыв."/>
+                </ComboBox>
+                <Button x:Name="btnReset" Click="ResetFilter" Content="Сбросить" Margin="0,24,103,24" Background="#FF9E34FB" Foreground="White" BorderBrush="#FF9E34FB" HorizontalAlignment="Right" Width="80"/>
+                <Button Click="AddRecord" Content="Добавить" Margin="0,19,18,19" Background="#FF9E34FB" Foreground="White" BorderBrush="#FF9E34FB" Height="25" HorizontalAlignment="Right" Width="70"/>
+            </Grid>
+        </Border>
+        <ScrollViewer Grid.Row="1" Margin="5,10,5,90" >
             <StackPanel x:Name="parent">
 
             </StackPanel>
         </ScrollViewer>
-        <Button Click="AddRecord" Content="Добавить" Width="80" Margin="0,0,21,10" HorizontalAlignment="Right" Background="#FF9E34FB" Foreground="White" BorderBrush="#FF9E34FB" Height="25" VerticalAlignment="Bottom" />
     </Grid>
 </Page>
